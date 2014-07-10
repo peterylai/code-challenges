@@ -1,4 +1,4 @@
-# Caeser Cipher
+# Caesar Cipher
 
 From Wikipedia:
 
