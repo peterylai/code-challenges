@@ -5,11 +5,11 @@ describe Cipher do
 
   describe "::encode" do
     it "encodes the word 'hello'" do
-      expect( Cipher.encode("hello") ).to eq("uryyb")
+      expect( Cipher.encode("hello") ).to eq("svool")
     end
 
     it "encodes the word 'peter'" do
-      expect( Cipher.encode("peter") ).to eq("crgre")
+      expect( Cipher.encode("peter") ).to eq("kvgvi")
     end
   end
   
