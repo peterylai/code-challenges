@@ -1,4 +1,5 @@
-# Given a sorted array of integers, find the starting and ending position of a given target value.
+# Given a sorted array of integers, find the starting and
+# ending position of a given target value.
 
 # Your algorithm's runtime complexity must be in the order of O(log n).
 
@@ -14,18 +15,14 @@
 # @param {Integer} target
 # @return {Integer[]}
 def search_range(nums, target)
- index = nums.bsearch_index{|x| x == target}
- index.nil? ? [-1,-1] : expand_around(nums, target, index)
+  index = nums.bsearch_index { |x| x == target }
+  index.nil? ? [-1, -1] : expand_around(nums, target, index)
 end
 
 def expand_around(nums, target, index)
   start = index
   finish = index
-  while nums[start-1] == target && start-1 >= 0
-    start -= 1
-  end
-  while nums[finish+1] == target
-    finish += 1
-  end
-  [start,finish]
+  start -= 1 while nums[start - 1] == target && start - 1 >= 0
+  finish += 1 while nums[finish + 1] == target
+  [start, finish]
 end
