@@ -14,27 +14,8 @@
 # @param {Integer} target
 # @return {Integer[]}
 def search_range(nums, target)
- index = find_match_index(nums, target)
- return [-1,-1] if index.nil?
- expand_around(nums, target, index)
-end
-
-def find_match_index(nums, target, offset = 0)
-  if nums.length <= 1
-    return nums.first == target ? offset : nil
-  end
-
-  half = nums.length / 2
-
-  if nums[half] > target
-    match = find_match_index(nums[0..half-1], target)
-  elsif nums[half] < target
-    match = find_match_index(nums[half+1..-1], target, half+1)
-  else
-    match = half
-  end
-
-  match.nil? ? nil : match + offset
+ index = nums.bsearch_index{|x| x == target}
+ index.nil? ? [-1,-1] : expand_around(nums, target, index)
 end
 
 def expand_around(nums, target, index)
